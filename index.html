@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EPF Withdrawal Eligibility Advisor</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>EPF Withdrawal Eligibility Advisor</h1>
+
+  <form id="epfForm">
+    <label>Employee Name:
+      <input type="text" id="name" required placeholder="Full name">
+    </label>
+
+    <label>Employee Share (₹):
+      <input type="number" id="employeeShare" required min="0" step="0.01">
+    </label>
+
+    <label>Employer Share (₹):
+      <input type="number" id="employerShare" required min="0" step="0.01">
+    </label>
+
+    <label>Years of Service:
+      <input type="number" id="years" required min="0" step="0.1">
+    </label>
+
+    <label>Number of Companies Worked:
+      <input type="number" id="companies" required min="1" step="1">
+    </label>
+
+    <label>Basic Salary (per month, ₹):
+      <input type="number" id="basicSalary" required min="1" step="0.01">
+    </label>
+
+    <label>Required Amount (₹) — (optional):
+      <input type="number" id="requiredAmount" min="0" step="0.01" placeholder="Enter amount you want (if less than eligibility)">
+    </label>
+
+    <label>Reason for Withdrawal:
+      <select id="reason" required>
+        <option value="">------Select Advance Para------</option>
+
+        <option value="nowages">Non Receipt of Wages (&gt;2 months)</option>
+        <option value="natural">Natural Calamities</option>
+        <option value="illness">Illness</option>
+        <option value="powercut">Power Cut</option>
+        <option value="marriage">Marriage</option>
+        <option value="education">Higher Education</option>
+        <option value="handicap">Purchase of Handicap equipment</option>
+        <option value="construction">Construction of House</option>
+        <option value="additions">Additions / Alterations of House</option>
+
+        <!-- Additional EPFO official options -->
+        <option value="promoter_purchase">Purchase of Dwelling House/ Flat from a Promoter</option>
+        <option value="site">Purchase of Site for Construction of Dwelling House</option>
+        <option value="agency_purchase">Purchase of House / Flat / Construction including acquisition of site from agency</option>
+        <option value="loanrepay">Repayment of Housing Loan</option>
+        <option value="lockout">Lockout / Closure of Establishment</option>
+        <option value="dismissal">Dismissal Challenged in Court</option>
+        <option value="closure6m">Closure &gt; 6 months (No Compensation)</option>
+        <option value="vpby">Investment in Varistha Pension Bima Yojana</option>
+        <option value="continuous_unemployment">Advance for continuous unemployment for above one month</option>
+        <option value="retirement">90% Withdrawal before retirement (Within 1 Year of Retirement)</option>
+      </select>
+    </label>
+
+    <button type="submit">Check Eligibility</button>
+  </form>
+
+  <h2>Result</h2>
+  <div id="finalBox"></div> <!-- ✅ Highlighted Final Eligibility box -->
+  <div id="result"></div>   <!-- ✅ Detailed explanation -->
+  <div class="note warning">
+  <b>Note:</b><br>
+  ✅ Final Eligibility shows the maximum (or requested) amount as per EPF rules.<br>
+  ⚠️ If you worked in multiple companies, make sure <b>all previous PF accounts are transferred to your present UAN</b>.<br>
+  Otherwise, your <b>service years will not be counted correctly</b> and you may get <b>lower benefits</b>.<br>
+  If PF is not transferred, check eligibility separately for each PF account.
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
